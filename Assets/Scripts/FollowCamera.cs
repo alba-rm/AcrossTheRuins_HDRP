@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     public Transform followPlayer;
-    private Vector3 positionCamera = new Vector3(0,2.8f,-8);
+    public Vector3 positionCamera = new Vector3(0,2.8f,-8);
  
     void Update()
     {
