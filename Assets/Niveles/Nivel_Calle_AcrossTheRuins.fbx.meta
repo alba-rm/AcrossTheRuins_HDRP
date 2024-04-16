@@ -3,7 +3,127 @@ guid: 3c71d1f3bd315d94cb44c576218cda53
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coche
+    second: {fileID: 2100000, guid: b241f0b6031fb9848b32029b18aabc59, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Techos
+    second: {fileID: 2100000, guid: 631e0cb5179a5b446b2654018265cb2c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: botella
+    second: {fileID: 2100000, guid: 22cb56f2037420d498b2aa8511fe4835, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ed_1_frente
+    second: {fileID: 2100000, guid: 318fd618365e03c458c5b93993894fcb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ed_1_perfil
+    second: {fileID: 2100000, guid: da6f8c3a000b5cb4d9d8720a2b84689e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ed_2_frente
+    second: {fileID: 2100000, guid: 66a5eb55a308d2642bbac841b54039b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ed_3_frente
+    second: {fileID: 2100000, guid: 6ee0d0c961a0caa4e9c446c6ee208c58, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ed_4_frente
+    second: {fileID: 2100000, guid: 6753013d36c1dd249b5331ba7edee933, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ed_5_frente
+    second: {fileID: 2100000, guid: 888b155c72c3cd64fa07ceef897e2dc6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pack_edificios_1_V2_pb
+    second: {fileID: 2100000, guid: 045f83964bcba244699ab98546026dba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pack_edificios_1_V2_pb.001
+    second: {fileID: 2100000, guid: 008da9f2684d1a24a975085168963d0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pack_props_1
+    second: {fileID: 2100000, guid: e4bf69c8e1c8dec44a1458a73fa587f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pack_props_2
+    second: {fileID: 2100000, guid: 770008a632aee744dbaff5a1ac0fa8aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pack_props_3
+    second: {fileID: 2100000, guid: 70f156ca18364f44ab7e19cc0e232528, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pack_props_3.001
+    second: {fileID: 2100000, guid: adf4437beaf680043beddc74453f470b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pack_props_4
+    second: {fileID: 2100000, guid: 00025990e67cd4846a5be407ebea9b94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pack_props_5
+    second: {fileID: 2100000, guid: bd63dc4b2ce486a4aa4b56916d95c296, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pack_props_6
+    second: {fileID: 2100000, guid: 01f6a0e66e1f5014591055911db39ffc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pack_props_6.001
+    second: {fileID: 2100000, guid: 9ea7ecf1a99198a4597e730f2173ba53, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: personajes
+    second: {fileID: 2100000, guid: 7a9763139a6e99c43974c8aee58f76e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ruinas_calle
+    second: {fileID: 2100000, guid: 29d811ab96616924d99aa6ac59c3834e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ruinas_calle.001
+    second: {fileID: 2100000, guid: 03363675ba7b0df4ea78baa5da1e2471, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: soldado
+    second: {fileID: 2100000, guid: c9352b43b968ca64789b0299bf59429a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: suelo.001
+    second: {fileID: 2100000, guid: a7ef88a2fac88a1439f245fd38cda4bb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -27,12 +27,6 @@ public class TPSControllerJac : MonoBehaviour
     private bool _isGrounded;
     private Animator _animator;
 
-    [SerializeField] private float _throwForce = 10;
-    public GameObject objectToGrab;
-    private GameObject grabedObject;
-    [SerializeField] private Transform _interactionZone;
-    [SerializeField] private float _pushForce = 5;
-
     //Escalada
     public float velocidadEscalada = 5f;
     public float distanciaMaxima = 2f;
@@ -59,14 +53,6 @@ public class TPSControllerJac : MonoBehaviour
         _vertical = Input.GetAxisRaw("Vertical");
         Movement();
         Jump();
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            GrabObject();
-        }
-        if(Input.GetButtonDown("Fire1") && grabedObject != null)
-        {
-            ThrowObject();
-        }
         Crouch();
         if (escalando)
         {
@@ -202,50 +188,4 @@ public class TPSControllerJac : MonoBehaviour
         _playerGravity.y += _gravity * Time.deltaTime;
         _controller.Move(_playerGravity * Time.deltaTime);
     }
-    void GrabObject()
-    {
-        if(objectToGrab != null && grabedObject == null)
-        {
-            grabedObject = objectToGrab;
-            grabedObject.transform.SetParent(_interactionZone);
-            grabedObject.transform.position = _interactionZone.position;
-            grabedObject.GetComponent<Rigidbody>().isKinematic = true;
-        }
-        else if(grabedObject != null)
-        {
-            grabedObject.GetComponent<Rigidbody>().isKinematic = false;
-            grabedObject.transform.SetParent(null);
-            grabedObject = null;
-        }
-    }
-
-    void ThrowObject()
-    {
-        Rigidbody grabedBody = grabedObject.GetComponent<Rigidbody>();
-
-        grabedBody.isKinematic = false;
-        grabedObject.transform.SetParent(null);
-        grabedBody.AddForce(_controller.transform.forward * _throwForce, ForceMode.Impulse);
-        grabedObject = null;
-    }
-
-    void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        Rigidbody body = hit.collider.attachedRigidbody;
-
-        if(body == null|| body.isKinematic)
-        {
-            return;
-        }
-
-        if(hit.moveDirection.y < -0.2f)
-        {
-            return;
-        }
-        Vector3 pushDirection = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-        body.velocity = pushDirection * _pushForce / body.mass;
-    }
-
-    
-      
 }

@@ -10,6 +10,9 @@ public class CambioPersonaje : MonoBehaviour
     public TPSController controllers;
     public TPSControllerJac controllerJac;
 
+    public GameObject lightNat; 
+    public GameObject lightJac; 
+
     FollowCamera cameraScript;
 
     void Awake()
@@ -79,6 +82,9 @@ public class CambioPersonaje : MonoBehaviour
             cameraScript.followPlayer = characters[1].transform;
 
             IaControllers[0].agent.Resume();
+
+            lightJac.SetActive(true);
+            lightNat.SetActive(false);
         }
         else
         {
@@ -91,6 +97,9 @@ public class CambioPersonaje : MonoBehaviour
             cameraScript.followPlayer = characters[0].transform;
 
             IaControllers[1].agent.Resume();
+
+            lightNat.SetActive(true);
+            lightJac.SetActive(false);
         }
     }
 }
