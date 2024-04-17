@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class TPSController : MonoBehaviour
 {
+
+    [SerializeField] float _jumpHeight = 1;
+     
     private CharacterController _controller;
     private Transform _camera;
     private float _horizontal;
     private float _vertical;
     [SerializeField] private float _playerSpeed = 5;
-    [SerializeField] private float _jumpHeight = 1;
+    //[SerializeField] private float _jumpHeight = 1;
 
 
     //Crouch
@@ -17,8 +20,8 @@ public class TPSController : MonoBehaviour
     [SerializeField] public bool _crouch = false;
     [SerializeField] private bool _canStand;
 
-    private float _gravity = -9.81f;
-    private Vector3 _playerGravity;
+    float _gravity = -9.81f;
+    Vector3 _playerGravity;
 
     private float turnSmoothVelocity;
     [SerializeField] float turnSmoothTime = 0.1f;
@@ -28,6 +31,7 @@ public class TPSController : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
     private bool _isGrounded;
     private Animator _animator;
+    private Rigidbody rb;
 
     [SerializeField] private float _throwForce = 10;
     public GameObject objectToGrab;
@@ -39,11 +43,16 @@ public class TPSController : MonoBehaviour
     public float velocidadElevacion = 5f; 
     private bool activarElevacion = false;
     
-
     //Disparo
     [SerializeField] Transform gunPosition;
     [SerializeField] int ammo;
     public GameObject bullet;
+
+    //Controlador de salto
+    public float jumpForce = 10f;
+    public Transform groundCheck;
+    public LayerMask groundMask;
+
     
  void Awake()
     {
@@ -56,16 +65,30 @@ public class TPSController : MonoBehaviour
     {
         _horizontal = Input.GetAxisRaw("Horizontal");
         _vertical = Input.GetAxisRaw("Vertical");
+        rb = GetComponent<Rigidbody>();
+        
+        _isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundMask);
+
+        if (_isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+       
         Movement();
+        
         Jump();
+        
+        
         if(Input.GetKeyDown(KeyCode.E))
         {
             GrabObject();
         }
+        
         if(Input.GetButtonDown("Fire1") && grabedObject != null)
         {
             ThrowObject();
         }
+        
         if (Input.GetKeyDown(KeyCode.C))
         {
             if(_crouch == true)
@@ -78,6 +101,7 @@ public class TPSController : MonoBehaviour
             }            
         }
         //Disparo
+        
         if (Input.GetMouseButtonDown(0))
         {
             if(ammo > 0)
@@ -86,11 +110,13 @@ public class TPSController : MonoBehaviour
                 ammo = ammo -1;
             }
         }
+        
         if (activarElevacion && Input.GetKey(KeyCode.L))
         {
             transform.Translate(Vector3.up * velocidadElevacion * Time.deltaTime);
         }
     }
+
     public void ActivarElevacion(bool activar)
     {
         activarElevacion = activar;
@@ -163,10 +189,29 @@ public class TPSController : MonoBehaviour
         if(_isGrounded && Input.GetButtonDown("Jump"))
         {
             _playerGravity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
+            //_animator.SetBool("IsJumping", true);
+        }        
+        _playerGravity.y += _gravity * Time.deltaTime;
+        
+        _controller.Move(_playerGravity * Time.deltaTime);
+    }
+    
+    /*void Jump()
+    {
+        _isGrounded = Physics.CheckSphere(_sensorPosition.position, _sensorRadius, _groundLayer);
+        _animator.SetBool("IsJumping", !_isGrounded);
+
+        if(_isGrounded && _playerGravity.y < 0)
+        {
+            _playerGravity.y = -2;
+        }
+        if(_isGrounded && Input.GetButtonDown("Jump"))
+        {
+            _playerGravity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
         }
         _playerGravity.y += _gravity * Time.deltaTime;
         _controller.Move(_playerGravity * Time.deltaTime);
-    }
+    }*/
     void GrabObject()
     {
         if(objectToGrab != null && grabedObject == null)
@@ -210,5 +255,10 @@ public class TPSController : MonoBehaviour
         Vector3 pushDirection = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
         body.velocity = pushDirection * _pushForce / body.mass;
     }
- 
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(_sensorPosition.position, _sensorRadius);
+    }
 }

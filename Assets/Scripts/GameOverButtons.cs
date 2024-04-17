@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class GameOverButtons : MonoBehaviour
 {
+    private GameObject player;
+
     public void RestartButton()
     {
         SceneManager.LoadScene("NivelCalle");
     }
-
-    void ExitButton()
+    
+    public void ExitButton()
     {
         SceneManager.LoadScene("MainMenu"); 
     }

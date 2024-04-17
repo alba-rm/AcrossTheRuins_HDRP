@@ -11,7 +11,8 @@ public class CambioPersonaje : MonoBehaviour
     public TPSControllerJac controllerJac;
 
     public GameObject lightNat; 
-    public GameObject lightJac; 
+    public GameObject lightJac;
+
 
     FollowCamera cameraScript;
 

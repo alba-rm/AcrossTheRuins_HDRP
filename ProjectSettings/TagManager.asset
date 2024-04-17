@@ -8,6 +8,7 @@ TagManager:
   - Grab
   - Escalable
   - Bomba
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
