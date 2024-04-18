@@ -10,7 +10,8 @@ public class SoldadoIA : MonoBehaviour
         Patrolling,
         Chasing,
         Searching,
-        Attacking
+        Attacking,
+        Distracted
     }
     
     public State currentState;
@@ -66,6 +67,9 @@ public class SoldadoIA : MonoBehaviour
             break;
             case State.Searching:
                 Search();
+            break;
+            case State.Distracted:
+                Distracted();
             break;
         }
         //anim.SetFloat("VelX", 0);
@@ -213,5 +217,10 @@ public class SoldadoIA : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, visionRange);
+    }
+
+    void Distracted()
+    {   
+        currentState = State.Patrolling;
     }
 }
