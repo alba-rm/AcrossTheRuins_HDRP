@@ -18,7 +18,7 @@ public class SoldadoIA : MonoBehaviour
 
     //Patrullar
     private NavMeshAgent agent;
-    private Transform player;
+    public GameObject[] player;
     [SerializeField] private Transform[] patrolPoints;
     
     [SerializeField] float visionRange = 10;
@@ -42,8 +42,8 @@ public class SoldadoIA : MonoBehaviour
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindWithTag("Player").transform;
-        anim = GetComponent<Animator>();
+        player = GameObject.FindGameObjectsWithTag("Player");
+        anim = GetComponentInChildren<Animator>();
     }
     
     void Start()
@@ -72,9 +72,9 @@ public class SoldadoIA : MonoBehaviour
                 Distracted();
             break;
         }
-        //anim.SetFloat("VelX", 0);
-        //anim.SetFloat("VelZ", agent.velocity.magnitude);
         
+        anim.SetFloat("VelX", 0);
+        anim.SetFloat("VelZ", agent.velocity.magnitude);
     }
 
     void Patrol()
@@ -101,7 +101,7 @@ public class SoldadoIA : MonoBehaviour
         {
             currentState = State.Attacking;
         }
-        agent.destination = player.position;
+        agent.destination = player[0].transform.position;
     }
 
     void Attack()
@@ -142,15 +142,15 @@ public class SoldadoIA : MonoBehaviour
 
     bool IsInRange()
     {
-        Vector3 directionToPlayer = player.position - transform.position;
+        Vector3 directionToPlayer = player[0].transform.position - transform.position;
         float distanceToPlayer = directionToPlayer.magnitude;
         float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
 
         if(distanceToPlayer <= visionRange && angleToPlayer < visionAngle * 0.5f)
         {
-            if(player.position == lastTargetPosition)
+            if(player[0].transform.position == lastTargetPosition)
             {
-                lastTargetPosition = player.position;
+                lastTargetPosition = player[0].transform.position;
                 return true;
             }
 
@@ -169,15 +169,15 @@ public class SoldadoIA : MonoBehaviour
 
     bool IsInRangeAttack()
     {
-        Vector3 directionToPlayer = player.position - transform.position;
+        Vector3 directionToPlayer = player[0].transform.position - transform.position;
         float distanceToPlayer = directionToPlayer.magnitude;
         float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
 
         if(distanceToPlayer <= attackRange && angleToPlayer < visionAngle * 0.5f)
         {
-            if(player.position == lastTargetPosition)
+            if(player[0].transform.position == lastTargetPosition)
             {
-                lastTargetPosition = player.position;
+                lastTargetPosition = player[0].transform.position;
                 return true;
             }
 

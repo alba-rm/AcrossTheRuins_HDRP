@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CambioPersonaje : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class CambioPersonaje : MonoBehaviour
     public GameObject lightNat; 
     public GameObject lightJac;
 
+    public NavMeshAgent AgentNat;
+    public NavMeshAgent AgentJac;
 
     FollowCamera cameraScript;
 
@@ -28,17 +31,17 @@ public class CambioPersonaje : MonoBehaviour
         {
             IAFollow Ia = character.GetComponent<IAFollow>();
             IaControllers.Add(Ia);
-            TPSController controller = character.GetComponent<TPSController>();
+            TPSController controller = character.GetComponentInChildren<TPSController>();
             if( controller != null)
             {
                 controllers = controller;
             }
-            TPSControllerJac Jac = character.GetComponent<TPSControllerJac>();
+            TPSControllerJac Jac = character.GetComponentInChildren<TPSControllerJac>();
             if( Jac != null)
             {
                 controllerJac = Jac;
             }
-            
+            NavMeshAgent Nav = character.GetComponentInChildren<NavMeshAgent>();
         }
     }
 
@@ -86,6 +89,10 @@ public class CambioPersonaje : MonoBehaviour
 
             lightJac.SetActive(true);
             lightNat.SetActive(false);
+
+            AgentNat.enabled = true;
+            AgentJac.enabled = false;
+            
         }
         else
         {
@@ -101,6 +108,10 @@ public class CambioPersonaje : MonoBehaviour
 
             lightNat.SetActive(true);
             lightJac.SetActive(false);
+
+            
+            AgentNat.enabled = false;
+            AgentJac.enabled = true;
         }
     }
 }
