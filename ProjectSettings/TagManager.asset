@@ -9,6 +9,7 @@ TagManager:
   - Escalable
   - Bomba
   - Checkpoint
+  - Canicas
   layers:
   - Default
   - TransparentFX
