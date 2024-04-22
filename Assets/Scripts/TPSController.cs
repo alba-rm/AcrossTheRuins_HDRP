@@ -262,17 +262,13 @@ public class TPSController : MonoBehaviour
             collectedMarbles--;
             UpdateMarbleUI();
         }
-        else
-        {
-            Debug.Log("¡No tienes suficientes canicas para distraer a los enemigos!");
-        }
     }
 
     private void UpdateMarbleUI()
     {
-        if (tpsController != null)
+        if (_controller != null)
     {
-        tpsController.UpdateMarbleCount(collectedMarbles);
+        _controller.UpdateMarbleCount(collectedMarbles);
     }
     }
 }
