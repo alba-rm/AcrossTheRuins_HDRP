@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TPSController : MonoBehaviour
 {
@@ -54,8 +55,8 @@ public class TPSController : MonoBehaviour
     public LayerMask groundMask;
 
     //Canicas
-    private int collectedMarbles = 0;
-
+    private int marbles;
+    public Text marblesText;
     
  void Awake()
     {
@@ -120,6 +121,12 @@ public class TPSController : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        marbles++;
+        marblesText.text = marbles.ToString();
+    }
+    
     public void ActivarElevacion(bool activar)
     {
         activarElevacion = activar;
@@ -247,28 +254,5 @@ public class TPSController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(_sensorPosition.position, _sensorRadius);
-    }
-
-    public void CollectMarble()
-    {
-        collectedMarbles++; 
-        UpdateMarbleUI(); 
-    }
-
-    public void UseMarbleToDistractEnemies()
-    {
-        if (collectedMarbles > 0)
-        {
-            collectedMarbles--;
-            UpdateMarbleUI();
-        }
-    }
-
-    private void UpdateMarbleUI()
-    {
-        if (_controller != null)
-    {
-        _controller.UpdateMarbleCount(collectedMarbles);
-    }
     }
 }
