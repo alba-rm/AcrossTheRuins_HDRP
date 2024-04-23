@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TPSController : MonoBehaviour
 {
@@ -56,10 +57,16 @@ public class TPSController : MonoBehaviour
 
     //Canicas
     private int marbles;
+    public string marblesCollection = "Marbles";
     public Text marblesText;
+
+    //Vida
+    public int vidaMaxima = 100;
+    private int vidaActual;
     
  void Awake()
     {
+        vidaActual = vidaMaxima;
         _controller = GetComponent<CharacterController>();
         _camera = Camera.main.transform;
         _animator = GetComponentInChildren<Animator>();
@@ -123,8 +130,11 @@ public class TPSController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        marbles++;
-        marblesText.text = marbles.ToString();
+        if (other.CompareTag(marblesCollection))
+        {
+            marbles++;
+            marblesText.text = marbles.ToString();
+        }
     }
     
     public void ActivarElevacion(bool activar)
@@ -254,5 +264,21 @@ public class TPSController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(_sensorPosition.position, _sensorRadius);
+    }
+
+    public void Damage(int damage)
+    {
+        vidaActual -= damage;
+
+        if (vidaActual <= 0)
+        {
+            SceneManager.LoadScene("Death");
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        Debug.Log("¡El jugador ha muerto!");
     }
 }

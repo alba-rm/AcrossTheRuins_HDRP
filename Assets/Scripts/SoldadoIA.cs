@@ -37,7 +37,9 @@ public class SoldadoIA : MonoBehaviour
     Vector3 lastTargetPosition;
     Animator anim;
 
-
+    //Damage
+    public TPSController personaje;
+    public int damage = 50;
 
     void Awake()
     {
@@ -106,7 +108,7 @@ public class SoldadoIA : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Atacando");
+        //Debug.Log("Atacando");
         currentState = State.Chasing;
     }
 
@@ -222,5 +224,17 @@ public class SoldadoIA : MonoBehaviour
     void Distracted()
     {   
         currentState = State.Patrolling;
+    }
+
+    void OnTriggerEnterOnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider.CompareTag("Player"))
+        {
+            TPSController personaje = hit.collider.GetComponent<TPSController>();
+            if (personaje != null)
+            {
+                personaje.Damage(damage);
+            }
+        }
     }
 }
