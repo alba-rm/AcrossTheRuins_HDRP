@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class SoldadoIA : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class SoldadoIA : MonoBehaviour
 
     //Damage
     public TPSController personaje;
-    public int damage = 50;
+    public int takeDamage = 50;
 
     void Awake()
     {
@@ -108,8 +109,19 @@ public class SoldadoIA : MonoBehaviour
 
     void Attack()
     {
-        //Debug.Log("Atacando");
-        currentState = State.Chasing;
+        Debug.Log("Atacando");
+        
+        if(IsInRange() == false)
+        {
+            SetRandomPoint();
+            currentState = State.Chasing;
+        }
+        if(IsInRangeAttack() == true)
+        {
+           personaje.TakeDamage(takeDamage);
+        }
+        
+        SceneManager.LoadScene("Death");
     }
 
     void SetRandomPoint()
@@ -224,17 +236,5 @@ public class SoldadoIA : MonoBehaviour
     void Distracted()
     {   
         currentState = State.Patrolling;
-    }
-
-    void OnTriggerEnterOnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.collider.CompareTag("Player"))
-        {
-            TPSController personaje = hit.collider.GetComponent<TPSController>();
-            if (personaje != null)
-            {
-                personaje.Damage(damage);
-            }
-        }
     }
 }

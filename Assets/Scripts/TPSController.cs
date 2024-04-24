@@ -61,12 +61,13 @@ public class TPSController : MonoBehaviour
     public Text marblesText;
 
     //Vida
-    public int vidaMaxima = 100;
-    private int vidaActual;
+    //public int vidaMaxima = 100;
+    public int vida = 100;
+    public int damage = 50;
     
  void Awake()
     {
-        vidaActual = vidaMaxima;
+        //vidaActual = vidaMaxima;
         _controller = GetComponent<CharacterController>();
         _camera = Camera.main.transform;
         _animator = GetComponentInChildren<Animator>();
@@ -87,8 +88,7 @@ public class TPSController : MonoBehaviour
        
         Movement();
         
-        Jump();
-        
+        Jump();        
         
         if(Input.GetKeyDown(KeyCode.E))
         {
@@ -266,11 +266,11 @@ public class TPSController : MonoBehaviour
         Gizmos.DrawWireSphere(_sensorPosition.position, _sensorRadius);
     }
 
-    public void Damage(int damage)
+    public void TakeDamage(int damage)
     {
-        vidaActual -= damage;
+        vida -= damage;
 
-        if (vidaActual <= 0)
+        if (vida <= 0)
         {
             SceneManager.LoadScene("Death");
             Death();
