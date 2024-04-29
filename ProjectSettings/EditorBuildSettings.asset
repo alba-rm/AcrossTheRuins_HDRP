@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Men\xFA/Muerte.unity"
     guid: 301a899a1628757419abe0c3548da6d3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Niveles/NivelMetro.unity
     guid: 34d55e6a5532a0248b2b39a3bffbbb87
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Niveles/NivelCasas.unity
     guid: 82b774a8fe7f1c94b893c49e8880f414
   m_configObjects: {}
