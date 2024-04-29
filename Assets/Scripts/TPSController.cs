@@ -111,8 +111,8 @@ public class TPSController : MonoBehaviour
                 Crouch();
             }            
         }
-        //Disparo
         
+        /*Disparo
         if (Input.GetMouseButtonDown(0))
         {
             if(ammo > 0)
@@ -125,7 +125,7 @@ public class TPSController : MonoBehaviour
         if (activarElevacion && Input.GetKey(KeyCode.L))
         {
             transform.Translate(Vector3.up * velocidadElevacion * Time.deltaTime);
-        }
+        }*/
     }
 
     public void OnTriggerEnter(Collider other)
