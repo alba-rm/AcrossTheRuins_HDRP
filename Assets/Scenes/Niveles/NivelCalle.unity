@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 13.694544, g: 9.874604, b: 8.543916, a: 1}
+  m_IndirectSpecularColor: {r: 13.693567, g: 9.872804, b: 8.543153, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4241,6 +4241,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -875
       objectReference: {fileID: 0}
+    - target: {fileID: 842043888878275013, guid: 27ea2ef374f847f4a87df6b24ae86321,
+        type: 3}
+      propertyPath: m_text
+      value: "Mi abuelo est\xE1 atrapado entre los escombros. \n\nNathalie y yo buscamos
+        ayuda."
+      objectReference: {fileID: 0}
     - target: {fileID: 964895068272054507, guid: 27ea2ef374f847f4a87df6b24ae86321,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4450,6 +4456,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937310290974669899, guid: 27ea2ef374f847f4a87df6b24ae86321,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 9100901217092592029, guid: 27ea2ef374f847f4a87df6b24ae86321,
         type: 3}
@@ -4727,7 +4738,7 @@ PrefabInstance:
     - target: {fileID: 9100901217092592029, guid: 27ea2ef374f847f4a87df6b24ae86321,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -7108,6 +7119,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -875
       objectReference: {fileID: 0}
+    - target: {fileID: 842043888878275013, guid: 27ea2ef374f847f4a87df6b24ae86321,
+        type: 3}
+      propertyPath: m_text
+      value: "S\xED, por favor, est\xE1 herido y no logramos sacarlo solos."
+      objectReference: {fileID: 0}
+    - target: {fileID: 842043888878275013, guid: 27ea2ef374f847f4a87df6b24ae86321,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 76.21657
+      objectReference: {fileID: 0}
     - target: {fileID: 964895068272054507, guid: 27ea2ef374f847f4a87df6b24ae86321,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -7326,7 +7347,7 @@ PrefabInstance:
     - target: {fileID: 9100901217092592029, guid: 27ea2ef374f847f4a87df6b24ae86321,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -31820,8 +31841,8 @@ SceneRoots:
   - {fileID: 8931751818135235456}
   - {fileID: 3211035071969413915}
   - {fileID: 799307057}
-  - {fileID: 1420222498}
   - {fileID: 777940309}
+  - {fileID: 1420222498}
   - {fileID: 193253792}
   - {fileID: 632352018}
   - {fileID: 75721231}
