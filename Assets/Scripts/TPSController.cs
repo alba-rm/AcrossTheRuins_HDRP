@@ -189,7 +189,7 @@ public class TPSController : MonoBehaviour
                 Debug.Log("Me levanto");
                 _crouch = false;
                 _animator.SetBool("IsCrouching", false);
-                _jumpHeight = 1;
+                _jumpHeight = 1.5f;
                 _controller.height = 2f;
                 _playerSpeed = 5;
                 _controller.center = new Vector3(0f, 0f, 0f);
