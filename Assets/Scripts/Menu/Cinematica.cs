@@ -43,11 +43,11 @@ public class Cinematica : MonoBehaviour
 
     void VideoEnded(UnityEngine.Video.VideoPlayer vp)
     {
-        SceneManager.LoadScene("NivelCasas");
+        SceneManager.LoadScene("NivelCalle");
     }
 
     void SkipCinematic()
     {
-       SceneManager.LoadScene("NivelCasas");
+       SceneManager.LoadScene("NivelCalle");
     }
 }

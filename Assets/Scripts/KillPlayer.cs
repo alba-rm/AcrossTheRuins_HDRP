@@ -47,7 +47,7 @@ public class KillPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(delaySeconds);
 
-        SceneManager.LoadScene(Death);
+        SceneManager.LoadScene("Death");
     }
 
     public void PlayMineSound()
