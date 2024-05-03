@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.VFX;
 
 public class TPSController : MonoBehaviour
 {
@@ -64,6 +65,9 @@ public class TPSController : MonoBehaviour
     //public int vidaMaxima = 100;
     public int vida = 100;
     public int damage = 50;
+
+    //Visual Effect
+    [SerializeField] private VisualEffect visualEffect; 
     
  void Awake()
     {
@@ -111,7 +115,6 @@ public class TPSController : MonoBehaviour
                 Crouch();
             }            
         }
-        
         /*Disparo
         if (Input.GetMouseButtonDown(0))
         {
@@ -280,5 +283,10 @@ public class TPSController : MonoBehaviour
     private void Death()
     {
         Debug.Log("¡El jugador ha muerto!");
+
+        if (visualEffect != null)
+        {
+            visualEffect.Play();
+        }
     }
 }
