@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Men\xFA/Pausa.unity"
     guid: 677a5b073f1cb2e4bbdf0d6cc2387c77
+  - enabled: 1
+    path: "Assets/Scenes/Men\xFA/Cinematica Final.unity"
+    guid: 85e93c216212fb94a8191963ee0e2a4d
   m_configObjects: {}
