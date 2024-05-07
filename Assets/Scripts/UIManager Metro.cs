@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManagerPrueba : MonoBehaviour
+public class UIManagerMetro : MonoBehaviour
 {
     public GameObject generalUI;
     public GameObject[] dialogueUIs;
@@ -21,13 +21,11 @@ public class UIManagerPrueba : MonoBehaviour
         {
             ToggleDialogueUI(0, true);
             ToggleDialogueUI(1, false);
-            ToggleDialogueUI(2, false);
         }
-        else if (other.CompareTag("DialogueZone2"))
+        if (other.CompareTag("DialogueZone2"))
         {
             ToggleDialogueUI(0, false);
             ToggleDialogueUI(1, true);
-            ToggleDialogueUI(2, false);
         }
        
     }

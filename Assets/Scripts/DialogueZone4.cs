@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueZone4 : MonoBehaviour
 {
-    public UIManagerPrueba uiManager;
+    public UIManagerCalle uiManager;
 
     private void OnTriggerEnter(Collider other)
     {

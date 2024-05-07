@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueZone5 : MonoBehaviour
+public class DialogueZone7 : MonoBehaviour
 {
-    public UIManagerCalle uiManager;
+    public UIManagerMetro uiManager;
 
     private void OnTriggerEnter(Collider other)
     {

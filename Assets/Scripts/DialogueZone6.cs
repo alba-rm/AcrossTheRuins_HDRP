@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueZone5 : MonoBehaviour
+public class DialogueZone6 : MonoBehaviour
 {
-    public UIManagerCalle uiManager;
+    public UIManagerMetro uiManager;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            uiManager.ToggleDialogueUI(1, true);
+            uiManager.ToggleDialogueUI(0, true);
         }
     }
 
@@ -18,7 +18,7 @@ public class DialogueZone5 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            uiManager.ToggleDialogueUI(1, false);
+            uiManager.ToggleDialogueUI(0, false);
         }
     }
 }
