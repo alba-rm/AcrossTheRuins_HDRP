@@ -38,4 +38,13 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Men\xFA/Cinematica Final.unity"
     guid: 85e93c216212fb94a8191963ee0e2a4d
+  - enabled: 1
+    path: Assets/Scenes/Niveles/NivelMetroDerrumbe.unity
+    guid: 2163f972dc1919d4ca27cc0103b22cb6
+  - enabled: 1
+    path: Assets/Scenes/Niveles/NivelCasas.unity
+    guid: 6f5dd12739ab93643896f4aae069ffa4
+  - enabled: 1
+    path: Assets/Scenes/Niveles/NivelTienda.unity
+    guid: db45003be017e0842a8a18e7e515931d
   m_configObjects: {}

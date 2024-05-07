@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadSceneCinematic : MonoBehaviour
+public class LoadSceneCalle : MonoBehaviour
 {
-    public int Cinematic;
+    public int NivelCalle;
     public float delaySeconds = 0.25f;
 
     private bool hasPlayerEntered = false;
@@ -29,6 +29,6 @@ public class LoadSceneCinematic : MonoBehaviour
     {
         yield return new WaitForSeconds(delaySeconds);
 
-        SceneManager.LoadScene("Cinematica Final");
+        SceneManager.LoadScene("NivelCalle");
     }
 }
