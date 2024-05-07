@@ -10,6 +10,9 @@ TagManager:
   - Bomba
   - Checkpoint
   - Marbles
+  - DialogueZone2
+  - DialogueZone3
+  - DialogueZone1
   layers:
   - Default
   - TransparentFX

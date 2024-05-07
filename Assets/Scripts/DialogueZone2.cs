@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueZone : MonoBehaviour
+public class DialogueZone2 : MonoBehaviour
 {
     public UIManagerPrueba uiManager;
 
@@ -10,7 +10,7 @@ public class DialogueZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            uiManager.ToggleDialogueUI(0, true);
+            uiManager.ToggleDialogueUI(1, true);
         }
     }
 
@@ -18,7 +18,7 @@ public class DialogueZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            uiManager.ToggleDialogueUI(0, false);
+            uiManager.ToggleDialogueUI(1, false);
         }
     }
 }
