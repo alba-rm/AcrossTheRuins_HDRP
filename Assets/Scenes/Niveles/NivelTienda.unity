@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2.277283, g: 1.5013444, b: 0.7221263, a: 1}
+  m_IndirectSpecularColor: {r: 2.279299, g: 1.5027282, b: 0.72278196, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3166,6 +3166,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020768800}
   m_CullTransparentMesh: 1
+--- !u!114 &1064911033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8882038152691996798, guid: 28b19e630db0eb740aa477b392cc7535,
+    type: 3}
+  m_PrefabInstance: {fileID: 1665552159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1110179117 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 280876769119841157, guid: af5030d3bb9041e49b1e72f8e631b7c8,
@@ -7001,7 +7013,7 @@ PrefabInstance:
         type: 3}
       propertyPath: marblesText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1064911033}
     - target: {fileID: 1626686476520759134, guid: 2d662d257d33df04c999bb06743a5325,
         type: 3}
       propertyPath: m_Enabled

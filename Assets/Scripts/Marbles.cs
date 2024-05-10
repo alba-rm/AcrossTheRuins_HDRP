@@ -22,21 +22,21 @@ public class Marbles : MonoBehaviour
     {
         if (marblesCountText != null)
         {
-            marblesCountText.text = "Canicas: " + marblesCount.ToString(); 
+            marblesCountText.text = "Marbles" + marblesCount.ToString(); 
         }
     }
 
     public void SaveMarblesCount()
     {
-        PlayerPrefs.SetInt("MarblesCount", marblesCount);
+        PlayerPrefs.SetInt("Marbles", marblesCount);
         PlayerPrefs.Save();
     }
     
     public void LoadMarblesCount()
     {
-        if (PlayerPrefs.HasKey("MarblesCount"))
+        if (PlayerPrefs.HasKey("Marbles"))
         {
-            marblesCount = PlayerPrefs.GetInt("MarblesCount");
+            marblesCount = PlayerPrefs.GetInt("Marbles");
             UpdateMarblesCountText();
         }
     }

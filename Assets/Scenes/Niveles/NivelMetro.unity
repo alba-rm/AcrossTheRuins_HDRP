@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3645182, g: 0.23063496, b: 0.117297605, a: 1}
+  m_IndirectSpecularColor: {r: 0.40088147, g: 0.25178078, b: 0.12901647, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1043,6 +1043,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerJac
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804217314305419051, guid: af8a84108b6669840b81da48fb59a96c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3451,6 +3456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a81da723c26cf40a62ff113ac2b90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marblesCountText: {fileID: 0}
 --- !u!1 &498148872
 GameObject:
   m_ObjectHideFlags: 0
@@ -5356,6 +5362,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.06
       objectReference: {fileID: 0}
+    - target: {fileID: 1523172020537959433, guid: 60dd7b4965e666a489096d32914c5e90,
+        type: 3}
+      propertyPath: marblesText
+      value: 
+      objectReference: {fileID: 1197402928}
     - target: {fileID: 3666311940680069440, guid: 60dd7b4965e666a489096d32914c5e90,
         type: 3}
       propertyPath: m_Intensity
@@ -6408,6 +6419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a81da723c26cf40a62ff113ac2b90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marblesCountText: {fileID: 0}
 --- !u!1 &872591321
 GameObject:
   m_ObjectHideFlags: 0
@@ -9422,6 +9434,18 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1197402928 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8451245145096235688, guid: 5e40b6adae2d0974999fcff7f4f21c80,
+    type: 3}
+  m_PrefabInstance: {fileID: 1272905615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1206727778
 GameObject:
   m_ObjectHideFlags: 0
@@ -12983,6 +13007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a81da723c26cf40a62ff113ac2b90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marblesCountText: {fileID: 0}
 --- !u!1 &1712091829 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 458150174319894212, guid: 8c2575cc07c759244be2a5186cbb8696,
@@ -14453,6 +14478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a81da723c26cf40a62ff113ac2b90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marblesCountText: {fileID: 0}
 --- !u!1 &1913140011
 GameObject:
   m_ObjectHideFlags: 0
