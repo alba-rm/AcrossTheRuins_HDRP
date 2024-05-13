@@ -909,6 +909,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1731111090}
     m_Modifications:
+    - target: {fileID: 1049472019273401629, guid: 7e147825b9361c849a5f6b119cabc5f9,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: c354b342af4b1dd41be05739083a2ee1, type: 2}
+    - target: {fileID: 1439030461203234329, guid: 7e147825b9361c849a5f6b119cabc5f9,
+        type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 26c1988400b42a84585a8e293c4a79ef,
+        type: 3}
+    - target: {fileID: 1439030461203234329, guid: 7e147825b9361c849a5f6b119cabc5f9,
+        type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: c354b342af4b1dd41be05739083a2ee1, type: 2}
+    - target: {fileID: 1439030461203234329, guid: 7e147825b9361c849a5f6b119cabc5f9,
+        type: 3}
+      propertyPath: m_ControlledAudioTrackCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439030461203234329, guid: 7e147825b9361c849a5f6b119cabc5f9,
+        type: 3}
+      propertyPath: m_DirectAudioMutes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439030461203234329, guid: 7e147825b9361c849a5f6b119cabc5f9,
+        type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439030461203234329, guid: 7e147825b9361c849a5f6b119cabc5f9,
+        type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439030461203234329, guid: 7e147825b9361c849a5f6b119cabc5f9,
+        type: 3}
+      propertyPath: m_TargetAudioSources.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439030461203234329, guid: 7e147825b9361c849a5f6b119cabc5f9,
+        type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439030461203234329, guid: 7e147825b9361c849a5f6b119cabc5f9,
+        type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5255544022423722269, guid: 7e147825b9361c849a5f6b119cabc5f9,
         type: 3}
       propertyPath: m_Pivot.x

@@ -1,18 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Key : MonoBehaviour
 {
-    public GameObject KeyObject;
-    public GameObject Level;
+    public GameObject lockedArea;
+    private bool isPickedUp = false;
 
-    private void OnTriggerEnter(Collider other)
+    public bool IsPickedUp()
+    {
+        return isPickedUp;
+    }
+
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Level.gameObject.SetActive(true);
-            Destroy(KeyObject);
+            PickUp();
+        }
+    }
+
+    public void PickUp()
+    {
+        if (!isPickedUp)
+        {
+            isPickedUp = true;
+            Destroy(gameObject);
+            UnlockArea();
+        }
+    }
+
+    void UnlockArea()
+    {
+        if (lockedArea != null)
+        {
+            lockedArea.SetActive(false);
         }
     }
 }

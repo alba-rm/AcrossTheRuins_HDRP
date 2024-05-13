@@ -13,6 +13,7 @@ TagManager:
   - DialogueZone2
   - DialogueZone3
   - DialogueZone1
+  - Key
   layers:
   - Default
   - TransparentFX

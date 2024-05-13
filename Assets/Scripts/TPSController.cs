@@ -115,22 +115,7 @@ public class TPSController : MonoBehaviour
                 Crouch();
             }            
         }
-        /*Disparo
-        if (Input.GetMouseButtonDown(0))
-        {
-            if(ammo > 0)
-            {
-                Instantiate(bullet, gunPosition.position, gunPosition.rotation);
-                ammo = ammo -1;
-            }
-        }
-        
-        if (activarElevacion && Input.GetKey(KeyCode.L))
-        {
-            transform.Translate(Vector3.up * velocidadElevacion * Time.deltaTime);
-        }*/
     }
-
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(marblesCollection))
@@ -289,4 +274,6 @@ public class TPSController : MonoBehaviour
             visualEffect.Play();
         }
     }
-}
+    }
+
+    
