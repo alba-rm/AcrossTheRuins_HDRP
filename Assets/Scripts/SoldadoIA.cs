@@ -17,18 +17,17 @@ public class SoldadoIA : MonoBehaviour
     
     public State currentState;
 
-    //Patrullar
+    // Patrullar
     private NavMeshAgent agent;
-    public GameObject[] player;
+    public GameObject[] players;
     [SerializeField] private Transform[] patrolPoints;
     
     [SerializeField] float visionRange = 10;
     [SerializeField] float visionAngle = 90;
     
     [SerializeField] private float detectionRange = 15;
-    
 
-    //Rango de ataque
+    // Rango de ataque
     [SerializeField] private float attackRange = 2;
 
     [SerializeField] float searchTimer;
@@ -38,14 +37,14 @@ public class SoldadoIA : MonoBehaviour
     Vector3 lastTargetPosition;
     Animator anim;
 
-    //Damage
+    // Damage
     public TPSController personaje;
     public int takeDamage = 50;
 
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectsWithTag("Player");
+        players = GameObject.FindGameObjectsWithTag("Player");
         anim = GetComponentInChildren<Animator>();
     }
     
@@ -61,19 +60,19 @@ public class SoldadoIA : MonoBehaviour
         {
             case State.Patrolling:
                 Patrol();
-            break;
+                break;
             case State.Chasing:
                 Chase();
-            break;
+                break;
             case State.Attacking:
                 Attack();
-            break;
+                break;
             case State.Searching:
                 Search();
-            break;
+                break;
             case State.Distracted:
                 Distracted();
-            break;
+                break;
         }
         
         anim.SetFloat("VelX", 0);
@@ -82,12 +81,12 @@ public class SoldadoIA : MonoBehaviour
 
     void Patrol()
     {
-        if(IsInRange() == true)
+        if (IsInRange())
         {
             currentState = State.Chasing;
         }
 
-        if(agent.remainingDistance < 0.5f)
+        if (agent.remainingDistance < 0.5f)
         {
             SetRandomPoint();
         }
@@ -95,30 +94,37 @@ public class SoldadoIA : MonoBehaviour
 
     void Chase()
     {
-        if(IsInRange() == false)
+        if (!IsInRange())
         {
             SetRandomPoint();
             currentState = State.Patrolling;
         }
-        if(IsInRangeAttack() == true)
+
+        if (IsInRangeAttack())
         {
             currentState = State.Attacking;
         }
-        agent.destination = player[0].transform.position;
+
+        GameObject closestPlayer = GetClosestPlayer();
+        if (closestPlayer != null)
+        {
+            agent.destination = closestPlayer.transform.position;
+        }
     }
 
     void Attack()
     {
         Debug.Log("Atacando");
         
-        if(IsInRange() == false)
+        if (!IsInRange())
         {
             SetRandomPoint();
             currentState = State.Chasing;
         }
-        if(IsInRangeAttack() == true)
+
+        if (IsInRangeAttack())
         {
-           personaje.TakeDamage(takeDamage);
+            personaje.TakeDamage(takeDamage);
         }
         
         SceneManager.LoadScene("Death");
@@ -131,22 +137,22 @@ public class SoldadoIA : MonoBehaviour
 
     void Search()
     {
-        if(IsInRange() == true)
+        if (IsInRange())
         {
             searchTimer = 0;
             currentState = State.Chasing;
         }
+
         searchTimer += Time.deltaTime;
-        if(searchTimer < searchWaitTime)
+        if (searchTimer < searchWaitTime)
         {
-            if(agent.remainingDistance < 0.5f)
+            if (agent.remainingDistance < 0.5f)
             {
                 Debug.Log("Buscando punto aleatorio");
                 Vector3 randomSearchPoint = lastTargetPosition + Random.insideUnitSphere * searchRadius;
                 randomSearchPoint.y = lastTargetPosition.y;
                 agent.destination = randomSearchPoint; 
             }
-            
         }
         else
         {
@@ -156,67 +162,77 @@ public class SoldadoIA : MonoBehaviour
 
     bool IsInRange()
     {
-        Vector3 directionToPlayer = player[0].transform.position - transform.position;
-        float distanceToPlayer = directionToPlayer.magnitude;
-        float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
-
-        if(distanceToPlayer <= visionRange && angleToPlayer < visionAngle * 0.5f)
+        foreach (GameObject player in players)
         {
-            if(player[0].transform.position == lastTargetPosition)
-            {
-                lastTargetPosition = player[0].transform.position;
-                return true;
-            }
+            Vector3 directionToPlayer = player.transform.position - transform.position;
+            float distanceToPlayer = directionToPlayer.magnitude;
+            float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
 
-            RaycastHit hit;
-            if(Physics.Raycast(transform.position, directionToPlayer, out hit,distanceToPlayer))
+            if (distanceToPlayer <= visionRange && angleToPlayer < visionAngle * 0.5f)
             {
-                if(hit.collider.CompareTag("Player"))
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, directionToPlayer, out hit, distanceToPlayer))
                 {
-                    return true;
+                    if (hit.collider.CompareTag("Player"))
+                    {
+                        lastTargetPosition = player.transform.position;
+                        return true;
+                    }
                 }
             }
-            return false;
         }
         return false;
     }
 
     bool IsInRangeAttack()
     {
-        Vector3 directionToPlayer = player[0].transform.position - transform.position;
-        float distanceToPlayer = directionToPlayer.magnitude;
-        float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
-
-        if(distanceToPlayer <= attackRange && angleToPlayer < visionAngle * 0.5f)
+        foreach (GameObject player in players)
         {
-            if(player[0].transform.position == lastTargetPosition)
-            {
-                lastTargetPosition = player[0].transform.position;
-                return true;
-            }
+            Vector3 directionToPlayer = player.transform.position - transform.position;
+            float distanceToPlayer = directionToPlayer.magnitude;
+            float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
 
-            RaycastHit hit;
-            if(Physics.Raycast(transform.position, directionToPlayer, out hit,distanceToPlayer))
+            if (distanceToPlayer <= attackRange && angleToPlayer < visionAngle * 0.5f)
             {
-                if(hit.collider.CompareTag("Player"))
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, directionToPlayer, out hit, distanceToPlayer))
                 {
-                    
-                    return true;
+                    if (hit.collider.CompareTag("Player"))
+                    {
+                        lastTargetPosition = player.transform.position;
+                        return true;
+                    }
                 }
             }
-            return false;
         }
         return false;
     }
 
-    void OnDrawGizmos() 
+    GameObject GetClosestPlayer()
+    {
+        GameObject closestPlayer = null;
+        float shortestDistance = Mathf.Infinity;
+
+        foreach (GameObject player in players)
+        {
+            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+            if (distanceToPlayer < shortestDistance)
+            {
+                shortestDistance = distanceToPlayer;
+                closestPlayer = player;
+            }
+        }
+        return closestPlayer;
+    }
+
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         foreach (Transform point in patrolPoints)
         {
             Gizmos.DrawWireSphere(point.position, 1f);
         }
-        
+
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
 
@@ -224,8 +240,8 @@ public class SoldadoIA : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
         Gizmos.color = Color.green;
-        Vector3  fovLine1 = Quaternion.AngleAxis(visionAngle * 0.5f, transform.up) * transform.forward * visionRange;
-        Vector3  fovLine2 = Quaternion.AngleAxis(-visionAngle * 0.5f, transform.up) * transform.forward * visionRange;
+        Vector3 fovLine1 = Quaternion.AngleAxis(visionAngle * 0.5f, transform.up) * transform.forward * visionRange;
+        Vector3 fovLine2 = Quaternion.AngleAxis(-visionAngle * 0.5f, transform.up) * transform.forward * visionRange;
         Gizmos.DrawLine(transform.position, transform.position + fovLine1);
         Gizmos.DrawLine(transform.position, transform.position + fovLine2);
 
