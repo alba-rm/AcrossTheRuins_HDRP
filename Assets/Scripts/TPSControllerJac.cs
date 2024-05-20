@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;  // Asegúrate de incluir esto
 
 public class TPSControllerJac : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class TPSControllerJac : MonoBehaviour
     private bool _isGrounded;
     private Animator _animator;
 
-    //Escalada
+    // Escalada
     public float velocidadEscalada = 5f;
     public float distanciaMaxima = 2f;
     public Transform puntoInicioEscalada;
@@ -35,16 +36,17 @@ public class TPSControllerJac : MonoBehaviour
     private bool escalando = false;
     private Vector3 puntoFinalEscalada;
 
-    //Disparo
+    // Disparo
     /*[SerializeField] Transform gunPosition;
     [SerializeField] int ammo;
     public GameObject bullet;*/
-    
- void Awake()
+
+    void Awake()
     {
         _controller = GetComponent<CharacterController>();
         _camera = Camera.main.transform;
         _animator = GetComponentInChildren<Animator>();
+        LoadGame();
     }
 
     void Update()
@@ -54,11 +56,13 @@ public class TPSControllerJac : MonoBehaviour
         Movement();
         Jump();
         Crouch();
+
         if (escalando)
         {
             float movimientoVertical = Input.GetAxis("Vertical");
             Vector3 movimiento = new Vector3(0, movimientoVertical, 0) * Time.deltaTime * velocidadEscalada;
             transform.Translate(movimiento);
+
             if (Vector3.Distance(transform.position, puntoFinalEscalada) >= distanciaMaxima)
             {
                 FinalizarEscalada();
@@ -71,7 +75,8 @@ public class TPSControllerJac : MonoBehaviour
                 ComenzarEscalada();
             }
         }
-        //Disparo
+
+        // Disparo
         /*if (Input.GetMouseButtonDown(0))
         {
             if(ammo > 0)
@@ -81,16 +86,18 @@ public class TPSControllerJac : MonoBehaviour
             }
         }*/
     }
+
     void ComenzarEscalada()
     {
         escalando = true;
-        puntoFinalEscalada = puntoInicioEscalada.position + Vector3.up * distanciaMaxima; 
+        puntoFinalEscalada = puntoInicioEscalada.position + Vector3.up * distanciaMaxima;
     }
-    
+
     void FinalizarEscalada()
     {
         escalando = false;
     }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Escalable"))
@@ -98,6 +105,7 @@ public class TPSControllerJac : MonoBehaviour
             puntoInicioEscalada = other.transform;
         }
     }
+
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Escalable"))
@@ -105,38 +113,23 @@ public class TPSControllerJac : MonoBehaviour
             FinalizarEscalada();
         }
     }
-    
+
     void Movement()
     {
         Vector3 direction = new Vector3(_horizontal, 0, _vertical);
         _animator.SetFloat("VelX", 0);
         _animator.SetFloat("VelZ", direction.magnitude);
 
-        if(direction != Vector3.zero)
+        if (direction != Vector3.zero)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
             float smoothAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0, smoothAngle, 0);
-            Vector3 moveDirection = Quaternion.Euler(0,targetAngle, 0) * Vector3.forward;
+            Vector3 moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
             _controller.Move(moveDirection.normalized * _playerSpeed * Time.deltaTime);
         }
-        //Ladder no funciona
-        /*float avoidFloorDistance = .1f;
-        float ladderGrabDistance = .4f;
-        if (Physics.Raycast(transform.position + Vector3.up * avoidFloorDistance, direction, out RaycastHit raycastHit, ladderGrabDistance))
-        {
-            if(raycastHit.transform.TryGetComponent(out Ladder ladder))
-            {
-                direction.x = 0f;
-                direction.y = direction.z;
-                direction.z = 0f;
-                _isGrounded = true;
-                
-
-            }
-            Debug.Log(raycastHit.transform);
-        }*/
     }
+
     void Crouch()
     {
         if (Physics.Raycast(HeadPosition.transform.position, Vector3.up, 0.5f))
@@ -148,9 +141,10 @@ public class TPSControllerJac : MonoBehaviour
         {
             _canStand = true;
         }
+
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if(_crouch == true && _canStand == true)
+            if (_crouch == true && _canStand == true)
             {
                 _crouch = false;
                 _animator.SetBool("IsCrouching", false);
@@ -158,7 +152,6 @@ public class TPSControllerJac : MonoBehaviour
                 _controller.height = 2f;
                 _playerSpeed = 5;
                 _controller.center = new Vector3(0f, 0f, 0f);
-                
             }
             else
             {
@@ -177,15 +170,32 @@ public class TPSControllerJac : MonoBehaviour
         _isGrounded = Physics.CheckSphere(_sensorPosition.position, _sensorRadius, _groundLayer);
         _animator.SetBool("IsJumping", !_isGrounded);
 
-        if(_isGrounded && _playerGravity.y < 0)
+        if (_isGrounded && _playerGravity.y < 0)
         {
             _playerGravity.y = -2;
         }
-        if(_isGrounded && Input.GetButtonDown("Jump"))
+
+        if (_isGrounded && Input.GetButtonDown("Jump"))
         {
             _playerGravity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
         }
+
         _playerGravity.y += _gravity * Time.deltaTime;
         _controller.Move(_playerGravity * Time.deltaTime);
+    }
+
+    public void LoadGame()
+    {
+        PlayerData data = SaveSystem.LoadGame();
+        if (data != null)
+        {
+            Vector3 position = new Vector3(data.playerPositionX, data.playerPositionY, data.playerPositionZ);
+            transform.position = position;
+
+            if (SceneManager.GetActiveScene().buildIndex != data.currentScene)
+            {
+                SceneManager.LoadScene(data.currentScene);
+            }
+        }
     }
 }
