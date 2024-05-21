@@ -28,7 +28,7 @@ public class SoldadoIA : MonoBehaviour
     [SerializeField] private float detectionRange = 15;
 
     // Rango de ataque
-    [SerializeField] private float attackRange = 2;
+    [SerializeField] private float attackRange = 4;
 
     [SerializeField] float searchTimer;
     [SerializeField] float searchWaitTime = 15;

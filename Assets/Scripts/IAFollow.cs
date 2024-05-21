@@ -29,4 +29,7 @@ public class IAFollow : MonoBehaviour
             anim.SetFloat("VelZ", agent.velocity.magnitude);
         }
     }
+
 }
+
+
