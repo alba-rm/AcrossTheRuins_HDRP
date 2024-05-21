@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class InteractionZone : MonoBehaviour
 {
-    TPSController _controller;
+    private TPSController playerController;
 
-    void Awake()
+    void Start()
     {
-        _controller = GetComponentInParent<TPSController>();
+        playerController = GameObject.FindWithTag("Player").GetComponent<TPSController>();
     }
 
-    void OnTriggerEnter(Collider collider) 
+    private void OnTriggerEnter(Collider other)
     {
-        if(collider.gameObject.tag == "Grab")
+        if (other.CompareTag("Interactuable"))
         {
-            _controller.objectToGrab = collider.gameObject;
+            playerController.SetObjectToGrab(other.gameObject);
         }
     }
 
-    void OnTriggerExit(Collider collider) 
+    private void OnTriggerExit(Collider other)
     {
-        if(collider.gameObject.tag == "Grab")
+        if (other.CompareTag("Interactuable"))
         {
-            _controller.objectToGrab = null;
+            playerController.SetObjectToGrab(null);
         }
     }
 }

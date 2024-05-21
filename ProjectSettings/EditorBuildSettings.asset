@@ -12,27 +12,36 @@ EditorBuildSettings:
     path: "Assets/Scenes/Men\xFA/MainMenu.unity"
     guid: 2b21aa7121a0c7040b35f1b4657bbc8d
   - enabled: 1
+    path: Assets/Scenes/Niveles/NivelCasa.unity
+    guid: a98a690a6ca1f9242a686a38e2dca645
+  - enabled: 1
     path: Assets/Scenes/Niveles/NivelCalle.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
+  - enabled: 1
+    path: Assets/Scenes/Niveles/NivelCalle 2.unity
+    guid: 6633b0a1c6ae16049aad7f2b87a6b358
+  - enabled: 1
+    path: Assets/Scenes/Niveles/NivelBrigitte.unity
+    guid: ee537aeb5859ab74191053726517f3d9
   - enabled: 1
     path: Assets/Scenes/Niveles/NivelMetro.unity
     guid: 910340caf0484184ab496d1f36c1a43a
   - enabled: 1
     path: "Assets/Scenes/Men\xFA/Death.unity"
-    guid: 301a899a1628757419abe0c3548da6d3
+    guid: 32ec25cffb94d814ca77d75650e05ccc
   - enabled: 1
     path: "Assets/Scenes/Men\xFA/Ajustes.unity"
     guid: eebbe537cead7c84dbf04b5cf7f7e265
   - enabled: 1
     path: "Assets/Scenes/Men\xFA/Cinematica Inicial.unity"
     guid: 942cd77bcc5f741418e08216230eb100
-  - enabled: 1
+  - enabled: 0
     path: "Assets/Scenes/Men\xFA/Extras.unity"
     guid: 208f1fbd8f639254e84f67f59ce824f7
   - enabled: 1
     path: "Assets/Scenes/Men\xFA/Nueva Partida.unity"
     guid: caf124b0a800da34bb64c8e3cdc8c78a
-  - enabled: 1
+  - enabled: 0
     path: "Assets/Scenes/Men\xFA/Pausa.unity"
     guid: 677a5b073f1cb2e4bbdf0d6cc2387c77
   - enabled: 1
@@ -41,10 +50,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Niveles/NivelMetroDerrumbe.unity
     guid: 2163f972dc1919d4ca27cc0103b22cb6
-  - enabled: 1
-    path: Assets/Scenes/Niveles/NivelCasas.unity
-    guid: 6f5dd12739ab93643896f4aae069ffa4
-  - enabled: 1
-    path: Assets/Scenes/Niveles/NivelTienda.unity
-    guid: db45003be017e0842a8a18e7e515931d
   m_configObjects: {}

@@ -15,6 +15,7 @@ TagManager:
   - DialogueZone1
   - Key
   - NavMesh
+  - Interactuable
   layers:
   - Default
   - TransparentFX
