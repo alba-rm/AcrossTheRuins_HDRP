@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadSceneTienda : MonoBehaviour
+public class LoadSceneCalle2 : MonoBehaviour
 {
     public int NivelCalle2;
     public float delaySeconds = 0.25f;
@@ -29,6 +29,6 @@ public class LoadSceneTienda : MonoBehaviour
     {
         yield return new WaitForSeconds(delaySeconds);
 
-        SceneManager.LoadScene("NivelCalle2");
+        SceneManager.LoadScene("NivelCalle 2");
     }
 }

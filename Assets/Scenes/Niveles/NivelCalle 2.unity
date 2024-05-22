@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 13.692888, g: 9.871552, b: 8.541841, a: 1}
+  m_IndirectSpecularColor: {r: 13.691599, g: 9.890138, b: 8.588807, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7230,7 +7230,7 @@ PrefabInstance:
     - target: {fileID: 2337963786139145780, guid: be336fcb9ba6fc047b0768dad9bb50d3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 61.79
+      value: -71.13
       objectReference: {fileID: 0}
     - target: {fileID: 2337963786139145780, guid: be336fcb9ba6fc047b0768dad9bb50d3,
         type: 3}
@@ -11789,7 +11789,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3674154555559944174}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1090858057
+--- !u!114 &1090858062
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11798,10 +11798,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1090858056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50366a7de9809dd4c95dac7b300d75f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bb63f5b064f1e2419f52d28ac758e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NivelCalle2: 0
+  NivelMetro: 0
   delaySeconds: 0.25
 --- !u!1 &1093154578
 GameObject:
@@ -27639,7 +27639,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8112147572345071970, guid: e4940f59106a96e4380910e0a5684631,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1090858057}
+      addedObject: {fileID: 1090858062}
   m_SourcePrefab: {fileID: 100100000, guid: e4940f59106a96e4380910e0a5684631, type: 3}
 --- !u!1 &3676624720754378237
 GameObject:
