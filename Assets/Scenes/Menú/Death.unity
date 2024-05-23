@@ -1046,7 +1046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HAS MUERTO
+  m_text: TE HAN CAPTURADO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d43b81092e69696458c06fc7984abd33, type: 2}
   m_sharedMaterial: {fileID: -5756925361287407258, guid: d43b81092e69696458c06fc7984abd33,

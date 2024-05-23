@@ -953,7 +953,7 @@ PrefabInstance:
     - target: {fileID: 1439030461203234329, guid: 7e147825b9361c849a5f6b119cabc5f9,
         type: 3}
       propertyPath: m_DirectAudioVolumes.Array.data[0]
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1439030461203234329, guid: 7e147825b9361c849a5f6b119cabc5f9,
         type: 3}

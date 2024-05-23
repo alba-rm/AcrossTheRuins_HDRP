@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueZone : MonoBehaviour
+public class DialogueZone15 : MonoBehaviour
 {
-    public UIManagerPrueba uiManager;
+    public UIManagerCalle uiManager;
 
     private void OnTriggerEnter(Collider other)
     {
