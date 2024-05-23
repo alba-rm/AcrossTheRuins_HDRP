@@ -545,7 +545,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 2800000, guid: 30b0e18c4b58bd74f8dd481874956002, type: 3}
+      objectReference: {fileID: 2800000, guid: d6edcecec475dc34ca08af4025091f6b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1035018170078024305, guid: 8922f9abd90f5fc4ebea8b03a17430f0, type: 3}
