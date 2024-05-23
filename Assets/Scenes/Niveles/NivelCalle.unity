@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 13.676325, g: 9.866014, b: 8.545182, a: 1}
+  m_IndirectSpecularColor: {r: 13.696085, g: 9.87552, b: 8.544999, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3485,7 +3485,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 8ba92e2dd7f884a0f88b98fa2d235fe7, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 9228ffce9574fb44582020d8f40e48a4, type: 2}
 --- !u!4 &432432461
 Transform:
   m_ObjectHideFlags: 0
@@ -18109,6 +18109,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1414479083}
+    - target: {fileID: 898653928121451785, guid: 74f6ad67c45af64429e872329116d8c0,
+        type: 3}
+      propertyPath: marblesText
+      value: 
+      objectReference: {fileID: 1146077649569354281}
     - target: {fileID: 6252471516229908891, guid: 74f6ad67c45af64429e872329116d8c0,
         type: 3}
       propertyPath: m_Speed

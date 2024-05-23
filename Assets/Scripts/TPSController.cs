@@ -117,6 +117,7 @@ public class TPSController : MonoBehaviour
             }            
         }
     }
+    
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(marblesCollection))

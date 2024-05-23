@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;  // Asegúrate de incluir esto
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TPSControllerJac : MonoBehaviour
 {
@@ -56,62 +57,6 @@ public class TPSControllerJac : MonoBehaviour
         Movement();
         Jump();
         Crouch();
-
-        if (escalando)
-        {
-            float movimientoVertical = Input.GetAxis("Vertical");
-            Vector3 movimiento = new Vector3(0, movimientoVertical, 0) * Time.deltaTime * velocidadEscalada;
-            transform.Translate(movimiento);
-
-            if (Vector3.Distance(transform.position, puntoFinalEscalada) >= distanciaMaxima)
-            {
-                FinalizarEscalada();
-            }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                ComenzarEscalada();
-            }
-        }
-
-        // Disparo
-        /*if (Input.GetMouseButtonDown(0))
-        {
-            if(ammo > 0)
-            {
-                Instantiate(bullet, gunPosition.position, gunPosition.rotation);
-                ammo = ammo -1;
-            }
-        }*/
-    }
-
-    void ComenzarEscalada()
-    {
-        escalando = true;
-        puntoFinalEscalada = puntoInicioEscalada.position + Vector3.up * distanciaMaxima;
-    }
-
-    void FinalizarEscalada()
-    {
-        escalando = false;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Escalable"))
-        {
-            puntoInicioEscalada = other.transform;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Escalable"))
-        {
-            FinalizarEscalada();
-        }
     }
 
     void Movement()
