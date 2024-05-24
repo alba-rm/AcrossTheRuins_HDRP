@@ -41,10 +41,13 @@ public class SoldadoIA : MonoBehaviour
     public TPSController personaje;
     public int takeDamage = 50;
 
+    private GameObject[] latas;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         players = GameObject.FindGameObjectsWithTag("Player");
+        latas = GameObject.FindGameObjectsWithTag("Lata");
         anim = GetComponentInChildren<Animator>();
     }
     
@@ -77,6 +80,10 @@ public class SoldadoIA : MonoBehaviour
         
         anim.SetFloat("VelX", 0);
         anim.SetFloat("VelZ", agent.velocity.magnitude);
+        if (LataRange())
+        {
+        currentState = State.Distracted;
+        }
     }
 
     void Patrol()
@@ -252,5 +259,18 @@ public class SoldadoIA : MonoBehaviour
     void Distracted()
     {   
         currentState = State.Patrolling;
+    }
+
+    bool LataRange()
+    {
+        foreach (GameObject lata in latas)
+        {
+            LAta lataScript = lata.GetComponent<LAta>();
+            if (lataScript.isThrowed && Vector3.Distance(transform.position, lata.transform.position) < 10f)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

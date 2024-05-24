@@ -16,6 +16,7 @@ TagManager:
   - Key
   - NavMesh
   - Interactuable
+  - Lata
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Water
   - UI
   - Soldado
-  - 
+  - Grab
   - 
   - 
   - 

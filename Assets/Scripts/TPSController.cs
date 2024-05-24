@@ -76,6 +76,11 @@ public class TPSController : MonoBehaviour
         _camera = Camera.main.transform;
         _animator = GetComponentInChildren<Animator>();
         LoadGame();
+
+        marbles = PlayerPrefs.GetInt("Marbles");
+
+        PlayerPrefs.SetInt("Marbles", 0);
+
     }
 
     void Update()
@@ -97,7 +102,10 @@ public class TPSController : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.E))
         {
+            if (objectToGrab != null)
+        {
             GrabObject();
+        }
         }
         
         if(Input.GetButtonDown("Fire1") && grabedObject != null)
@@ -208,29 +216,47 @@ public class TPSController : MonoBehaviour
     
     void GrabObject()
     {
-        if(objectToGrab != null && grabedObject == null)
+        if (grabedObject == null)
         {
             grabedObject = objectToGrab;
             grabedObject.transform.SetParent(_interactionZone);
             grabedObject.transform.position = _interactionZone.position;
             grabedObject.GetComponent<Rigidbody>().isKinematic = true;
+            grabedObject.GetComponent<LAta>().isThrowed = false;
         }
-        else if(grabedObject != null)
+        else
         {
             grabedObject.GetComponent<Rigidbody>().isKinematic = false;
             grabedObject.transform.SetParent(null);
+            grabedObject.GetComponent<LAta>().isThrowed = true;
             grabedObject = null;
+            
         }
     }
 
     void ThrowObject()
     {
+    if (grabedObject != null)
+    {
         Rigidbody grabedBody = grabedObject.GetComponent<Rigidbody>();
 
-        grabedBody.isKinematic = false;
-        grabedObject.transform.SetParent(null);
-        grabedBody.AddForce(_controller.transform.forward * _throwForce, ForceMode.Impulse);
-        grabedObject = null;
+        if (grabedBody != null) 
+        {
+            grabedBody.isKinematic = false;
+            grabedObject.transform.SetParent(null);
+            grabedBody.AddForce(_controller.transform.forward * _throwForce, ForceMode.Impulse);
+            grabedObject.GetComponent<LAta>().isThrowed = true; 
+            grabedObject = null;
+        }
+        else
+        {
+            Debug.LogError("Rigidbody component not found in grabedObject");
+        }
+    }
+    else
+    {
+        Debug.LogError("grabedObject is null");
+    }
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)

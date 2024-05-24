@@ -13,7 +13,7 @@ public class InteractionZone : MonoBehaviour
 
     void OnTriggerEnter(Collider collider) 
     {
-        if(collider.gameObject.tag == "Grab")
+        if(collider.gameObject.layer == 7)
         {
             _controller.objectToGrab = collider.gameObject;
         }
@@ -21,7 +21,7 @@ public class InteractionZone : MonoBehaviour
 
     void OnTriggerExit(Collider collider) 
     {
-        if(collider.gameObject.tag == "Grab")
+        if(collider.gameObject.layer == 7)
         {
             _controller.objectToGrab = null;
         }

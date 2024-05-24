@@ -5,12 +5,19 @@ using UnityEngine;
 public class DialogueZone12 : MonoBehaviour
 {
     public UIManagerCasas uiManager;
+    public Julien julienScript;
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             uiManager.ToggleDialogueUI(1, true);
+            
+            if (julienScript != null)
+            {
+                julienScript.SetTalkingAnimation(true);
+            }
         }
     }
 
@@ -19,6 +26,11 @@ public class DialogueZone12 : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             uiManager.ToggleDialogueUI(1, false);
+            
+            if (julienScript != null)
+            {
+                julienScript.SetTalkingAnimation(false);
+            }
         }
     }
 }
