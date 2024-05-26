@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DialogueZone10 : MonoBehaviour
 {
-    public UIManagerTienda uiManager;
+    public UIManagerCalle2 uiManager;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            uiManager.ToggleDialogueUI(0, true);
+            uiManager.ToggleDialogueUI(1, true);
         }
     }
 
@@ -18,7 +18,7 @@ public class DialogueZone10 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            uiManager.ToggleDialogueUI(0, false);
+            uiManager.ToggleDialogueUI(1, false);
         }
     }
 }

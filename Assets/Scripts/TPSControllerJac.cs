@@ -47,7 +47,6 @@ public class TPSControllerJac : MonoBehaviour
         _controller = GetComponent<CharacterController>();
         _camera = Camera.main.transform;
         _animator = GetComponentInChildren<Animator>();
-        LoadGame();
     }
 
     void Update()
@@ -127,20 +126,5 @@ public class TPSControllerJac : MonoBehaviour
 
         _playerGravity.y += _gravity * Time.deltaTime;
         _controller.Move(_playerGravity * Time.deltaTime);
-    }
-
-    public void LoadGame()
-    {
-        PlayerData data = SaveSystem.LoadGame();
-        if (data != null)
-        {
-            Vector3 position = new Vector3(data.playerPositionX, data.playerPositionY, data.playerPositionZ);
-            transform.position = position;
-
-            if (SceneManager.GetActiveScene().buildIndex != data.currentScene)
-            {
-                SceneManager.LoadScene(data.currentScene);
-            }
-        }
     }
 }
