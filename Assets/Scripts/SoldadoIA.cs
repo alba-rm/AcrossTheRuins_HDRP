@@ -258,7 +258,7 @@ public class SoldadoIA : MonoBehaviour
 
     void Distracted()
     {   
-        currentState = State.Patrolling;
+        currentState = State.Chasing;
     }
 
     bool LataRange()
@@ -266,7 +266,7 @@ public class SoldadoIA : MonoBehaviour
         foreach (GameObject lata in latas)
         {
             LAta lataScript = lata.GetComponent<LAta>();
-            if (lataScript.isThrowed && Vector3.Distance(transform.position, lata.transform.position) < 25f)
+            if (lataScript.isThrowed && Vector3.Distance(transform.position, lata.transform.position) < 20f)
             {
                 return true;
             }

@@ -221,13 +221,13 @@ public class TPSController : MonoBehaviour
             grabedObject.transform.SetParent(_interactionZone);
             grabedObject.transform.position = _interactionZone.position;
             grabedObject.GetComponent<Rigidbody>().isKinematic = true;
-            grabedObject.GetComponent<LAta>().isThrowed = false;
+            grabedObject.GetComponent<LAta>().isThrowed = true;
         }
         else
         {
             grabedObject.GetComponent<Rigidbody>().isKinematic = false;
             grabedObject.transform.SetParent(null);
-            grabedObject.GetComponent<LAta>().isThrowed = true;
+            grabedObject.GetComponent<LAta>().isThrowed = false;
             grabedObject = null;
             
         }
@@ -244,17 +244,10 @@ public class TPSController : MonoBehaviour
             grabedBody.isKinematic = false;
             grabedObject.transform.SetParent(null);
             grabedBody.AddForce(_controller.transform.forward * _throwForce, ForceMode.Impulse);
-            grabedObject.GetComponent<LAta>().isThrowed = true; 
+            grabedObject.GetComponent<LAta>().isThrowed = false; 
             grabedObject = null;
         }
-        else
-        {
-            Debug.LogError("Rigidbody component not found in grabedObject");
-        }
-    }
-    else
-    {
-        Debug.LogError("grabedObject is null");
+        
     }
     }
 

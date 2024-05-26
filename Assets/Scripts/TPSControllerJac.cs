@@ -29,14 +29,6 @@ public class TPSControllerJac : MonoBehaviour
     private bool _isGrounded;
     private Animator _animator;
 
-    // Escalada
-    public float velocidadEscalada = 5f;
-    public float distanciaMaxima = 2f;
-    public Transform puntoInicioEscalada;
-
-    private bool escalando = false;
-    private Vector3 puntoFinalEscalada;
-
     // Disparo
     /*[SerializeField] Transform gunPosition;
     [SerializeField] int ammo;
