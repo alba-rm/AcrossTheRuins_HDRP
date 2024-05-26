@@ -266,7 +266,7 @@ public class SoldadoIA : MonoBehaviour
         foreach (GameObject lata in latas)
         {
             LAta lataScript = lata.GetComponent<LAta>();
-            if (lataScript.isThrowed && Vector3.Distance(transform.position, lata.transform.position) < 10f)
+            if (lataScript.isThrowed && Vector3.Distance(transform.position, lata.transform.position) < 25f)
             {
                 return true;
             }

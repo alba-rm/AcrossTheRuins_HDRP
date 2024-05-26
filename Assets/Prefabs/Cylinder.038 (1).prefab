@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5628708445472562149}
   - component: {fileID: 5007931226339193013}
   - component: {fileID: 2974873834822302076}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.038 (1)
-  m_TagString: Grab
+  m_TagString: Lata
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
