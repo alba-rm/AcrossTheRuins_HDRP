@@ -79,7 +79,6 @@ public class TPSController : MonoBehaviour
         marbles = PlayerPrefs.GetInt("Marbles");
 
         PlayerPrefs.SetInt("Marbles", 0);
-
     }
 
     void Update()

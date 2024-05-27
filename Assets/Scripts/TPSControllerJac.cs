@@ -39,6 +39,7 @@ public class TPSControllerJac : MonoBehaviour
         _controller = GetComponent<CharacterController>();
         _camera = Camera.main.transform;
         _animator = GetComponentInChildren<Animator>();
+       
     }
 
     void Update()
