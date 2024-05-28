@@ -712,6 +712,11 @@ PrefabInstance:
       propertyPath: m_StoppingDistance
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7156470959614301299, guid: af8a84108b6669840b81da48fb59a96c,
+        type: 3}
+      propertyPath: marblesText
+      value: 
+      objectReference: {fileID: 132790168}
     - target: {fileID: 7315028935717922843, guid: af8a84108b6669840b81da48fb59a96c,
         type: 3}
       propertyPath: player
@@ -1121,6 +1126,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cc406ff116cc5249beeefc413e8ff26, type: 3}
+--- !u!114 &132790168 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 779862822233643827, guid: 8cc406ff116cc5249beeefc413e8ff26,
+    type: 3}
+  m_PrefabInstance: {fileID: 132790167}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &135532393
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4223,6 +4240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultPlayerPosition: {x: -123.002, y: 20.175, z: 96.5}
+  defaultIA1Position: {x: -121.737, y: 20.175, z: 95.25}
+  players: []
 --- !u!1 &750968067
 GameObject:
   m_ObjectHideFlags: 0
@@ -9702,6 +9721,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 113.20999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336055094894388143, guid: 60dd7b4965e666a489096d32914c5e90,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.35
       objectReference: {fileID: 0}
     - target: {fileID: 3666311940680069440, guid: 60dd7b4965e666a489096d32914c5e90,
         type: 3}

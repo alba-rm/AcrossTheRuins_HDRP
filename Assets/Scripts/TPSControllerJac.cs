@@ -29,17 +29,18 @@ public class TPSControllerJac : MonoBehaviour
     private bool _isGrounded;
     private Animator _animator;
 
-    // Disparo
-    /*[SerializeField] Transform gunPosition;
-    [SerializeField] int ammo;
-    public GameObject bullet;*/
+    //Canicas
+    private int marbles;
+    public string marblesCollection = "Marbles";
+    public Text marblesText;
 
     void Awake()
     {
         _controller = GetComponent<CharacterController>();
         _camera = Camera.main.transform;
         _animator = GetComponentInChildren<Animator>();
-       
+        marbles = PlayerPrefs.GetInt("Marbles");
+        PlayerPrefs.SetInt("Marbles", 0);
     }
 
     void Update()
@@ -49,6 +50,8 @@ public class TPSControllerJac : MonoBehaviour
         Movement();
         Jump();
         Crouch();
+        marbles = PlayerPrefs.GetInt("Marbles");
+        PlayerPrefs.SetInt("Marbles", 0);
     }
 
     void Movement()
@@ -69,7 +72,7 @@ public class TPSControllerJac : MonoBehaviour
 
     void Crouch()
     {
-        if (Physics.Raycast(HeadPosition.transform.position, Vector3.up, 0.5f))
+        if (Physics.Raycast(HeadPosition.transform.position, Vector3.up, 1.5f))
         {
             _canStand = false;
             Debug.DrawRay(HeadPosition.transform.position, Vector3.up, Color.red);
@@ -120,4 +123,22 @@ public class TPSControllerJac : MonoBehaviour
         _playerGravity.y += _gravity * Time.deltaTime;
         _controller.Move(_playerGravity * Time.deltaTime);
     }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(marblesCollection))
+        {
+            marbles++;
+            marblesText.text = marbles.ToString();
+            other.isTrigger = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag(marblesCollection))
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
 }

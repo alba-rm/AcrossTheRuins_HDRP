@@ -10,11 +10,26 @@ public class Marbles : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (gameObject.layer == 9)
         {
-            Destroy(gameObject);
             marblesCount++;
             UpdateMarblesCountText();
+            Destroy(gameObject);
+        }
+        else if (gameObject.layer == 8)
+        {
+            other.isTrigger = false;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (gameObject.layer == 9)
+        {
+            Destroy(gameObject);
+        }
+        else if (gameObject.layer == 8)
+        {
+            other.isTrigger = true;
         }
     }
 

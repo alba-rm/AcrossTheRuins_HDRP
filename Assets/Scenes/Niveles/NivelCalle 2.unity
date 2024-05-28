@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 7.5650606, g: 3.8172193, b: 1.7830851, a: 1}
+  m_IndirectSpecularColor: {r: 7.5671663, g: 3.8190923, b: 1.7846644, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3876,7 +3876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c8be00354ec9e4aa0c4a24e7ba9cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentNat: {fileID: 0}
+  agentNat: {fileID: 601319929}
   agentJac: {fileID: 1155765378}
 --- !u!65 &291287138
 BoxCollider:
@@ -27279,6 +27279,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 601319928}
+    - target: {fileID: 898653928121451785, guid: 74f6ad67c45af64429e872329116d8c0,
+        type: 3}
+      propertyPath: marblesText
+      value: 
+      objectReference: {fileID: 951921181}
     - target: {fileID: 3827348197932154285, guid: 74f6ad67c45af64429e872329116d8c0,
         type: 3}
       propertyPath: m_Enabled

@@ -20,7 +20,7 @@ public class TPSController : MonoBehaviour
 
     //Crouch
     [SerializeField] private GameObject HeadPosition;
-    [SerializeField] public bool _crouch = false;
+    [SerializeField] private bool _crouch = false;
     [SerializeField] private bool _canStand;
 
     float _gravity = -9.81f;
@@ -41,10 +41,6 @@ public class TPSController : MonoBehaviour
     private GameObject grabedObject;
     [SerializeField] private Transform _interactionZone;
     [SerializeField] private float _pushForce = 5;
-
-    //Escalada
-    public float velocidadElevacion = 5f; 
-    private bool activarElevacion = false;
     
     //Disparo
     [SerializeField] Transform gunPosition;
@@ -76,9 +72,9 @@ public class TPSController : MonoBehaviour
         _camera = Camera.main.transform;
         _animator = GetComponentInChildren<Animator>();
 
-        marbles = PlayerPrefs.GetInt("Marbles");
+        //marbles = PlayerPrefs.GetInt("Marbles");
 
-        PlayerPrefs.SetInt("Marbles", 0);
+        //PlayerPrefs.SetInt("Marbles", 0);
     }
 
     void Update()
@@ -111,31 +107,22 @@ public class TPSController : MonoBehaviour
             ThrowObject();
         }
         
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            if(_crouch == true)
-            {
-                Stand();
-            }
-            else
-            {
-                Crouch();
-            }            
-        }
+        Crouch();
     }
     
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(marblesCollection))
         {
-            marbles++;
-            marblesText.text = marbles.ToString();
+            other.isTrigger = false;
         }
     }
-    
-    public void ActivarElevacion(bool activar)
+    public void OnTriggerExit(Collider other)
     {
-        activarElevacion = activar;
+        if (other.CompareTag(marblesCollection))
+        {
+            other.isTrigger = true;
+        }
     }
     
     void Movement()
@@ -153,9 +140,9 @@ public class TPSController : MonoBehaviour
             _controller.Move(moveDirection.normalized * _playerSpeed * Time.deltaTime);
         }
     }
-    void CheckCrouch()
+    void Crouch()
     {
-        if (Physics.Raycast(HeadPosition.transform.position, Vector3.up, 0.5f))
+        if (Physics.Raycast(HeadPosition.transform.position, Vector3.up, 1.5f))
         {
             _canStand = false;
             Debug.DrawRay(HeadPosition.transform.position, Vector3.up, Color.red);
@@ -164,33 +151,28 @@ public class TPSController : MonoBehaviour
         {
             _canStand = true;
         }
-    }
-    void Crouch()
-    {                   
-                //Me agacho
-                Debug.Log("Me agacho");
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (_crouch == true && _canStand == true)
+            {
+                _crouch = false;
+                _animator.SetBool("IsCrouching", false);
+                _jumpHeight = 1;
+                _controller.height = 2f;
+                _playerSpeed = 5;
+                _controller.center = new Vector3(0f, 0f, 0f);
+            }
+            else
+            {
                 _crouch = true;
                 _animator.SetBool("IsCrouching", true);
                 _jumpHeight = 0;
                 _controller.height = 1.5f;
                 _playerSpeed = 2;
                 _controller.center = new Vector3(0f, -0.2f, 0f);
-    }
-    void Stand()
-    {
-        CheckCrouch();
-        if(_canStand == true)
-            {
-                //Me levanto
-                Debug.Log("Me levanto");
-                _crouch = false;
-                _animator.SetBool("IsCrouching", false);
-                _jumpHeight = 1.5f;
-                _controller.height = 2f;
-                _playerSpeed = 5;
-                _controller.center = new Vector3(0f, 0f, 0f);
-                
             }
+        }
     }
 
     void Jump()
