@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Men\xFA/DeathMinas.unity"
     guid: 314f3728a541abe41a180c405ae19b03
+  - enabled: 1
+    path: "Assets/Scenes/Men\xFA/DeathCaida.unity"
+    guid: cdc1189a2e7556446ab873f7e9ae9f7b
   m_configObjects: {}

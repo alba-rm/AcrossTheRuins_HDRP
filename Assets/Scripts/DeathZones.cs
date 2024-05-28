@@ -29,6 +29,6 @@ public class DeathZones : MonoBehaviour
     {
         yield return new WaitForSeconds(delaySeconds);
 
-        SceneManager.LoadScene("Death");
+        SceneManager.LoadScene("DeathCaida");
     }
 }

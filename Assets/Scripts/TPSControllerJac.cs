@@ -30,7 +30,7 @@ public class TPSControllerJac : MonoBehaviour
     private Animator _animator;
 
     //Canicas
-    private int marbles;
+    public int marbles;
     public string marblesCollection = "Marbles";
     public Text marblesText;
 
@@ -39,6 +39,7 @@ public class TPSControllerJac : MonoBehaviour
         _controller = GetComponent<CharacterController>();
         _camera = Camera.main.transform;
         _animator = GetComponentInChildren<Animator>();
+        LoadMarblesCount();
         marbles = PlayerPrefs.GetInt("Marbles");
         PlayerPrefs.SetInt("Marbles", 0);
     }
@@ -50,8 +51,6 @@ public class TPSControllerJac : MonoBehaviour
         Movement();
         Jump();
         Crouch();
-        marbles = PlayerPrefs.GetInt("Marbles");
-        PlayerPrefs.SetInt("Marbles", 0);
     }
 
     void Movement()
@@ -123,22 +122,46 @@ public class TPSControllerJac : MonoBehaviour
         _playerGravity.y += _gravity * Time.deltaTime;
         _controller.Move(_playerGravity * Time.deltaTime);
     }
+    
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(marblesCollection))
         {
             marbles++;
-            marblesText.text = marbles.ToString();
-            other.isTrigger = true;
-        }
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag(marblesCollection))
-        {
+            UpdateMarblesCountText(); 
             Destroy(other.gameObject);
         }
     }
 
+    
+    //Guardar canicas escena
+    void UpdateMarblesCountText()
+    {
+        if (marblesText != null)
+        {
+            marblesText.text = "" + marbles.ToString();
+        }
+    }
+
+    void LoadMarblesCount()
+    {
+        marbles = PlayerPrefs.GetInt("Marbles", 0);
+        UpdateMarblesCountText(); 
+    }
+    
+    private void OnApplicationQuit()
+    {
+        SaveMarblesCount(); 
+    }
+
+    private void OnDestroy()
+    {
+        SaveMarblesCount(); 
+    }
+
+    void SaveMarblesCount()
+    {
+        PlayerPrefs.SetInt("Marbles", marbles);
+        PlayerPrefs.Save();
+    }
 }
