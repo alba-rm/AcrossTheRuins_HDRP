@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.36501792, g: 0.23089913, b: 0.11742963, a: 1}
+  m_IndirectSpecularColor: {r: 0.36438945, g: 0.23052803, b: 0.11724712, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9602,6 +9602,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Caja Interactuable Variant (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8630041350371592528, guid: c2d0679385ce9cf41b656bf0c904b792,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12273,6 +12278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Caja Interactuable Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630041350371592528, guid: c2d0679385ce9cf41b656bf0c904b792,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15475,7 +15485,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 959
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -17423,6 +17433,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Caja Interactuable 3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871240622377814751, guid: d7b8ab505f9949343b1794460f3ed609,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
