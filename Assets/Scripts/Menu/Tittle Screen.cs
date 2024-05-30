@@ -19,7 +19,7 @@ public class TitleScreen : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.anyKeyDown)
         {
             LoadNextScene();
         }

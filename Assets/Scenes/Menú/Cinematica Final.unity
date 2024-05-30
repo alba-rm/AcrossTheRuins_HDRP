@@ -798,7 +798,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Presiona "P" para pausar el video.
 
-    Presiona "S" para skipear el video.'
+    Presiona "S" para saltar el video.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7068c34700485924ca0736414bc53d5a, type: 2}
   m_sharedMaterial: {fileID: 7539779346383808585, guid: 7068c34700485924ca0736414bc53d5a,

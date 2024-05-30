@@ -1111,7 +1111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 215}
+  m_AnchoredPosition: {x: -528, y: 215}
   m_SizeDelta: {x: 621.1026, y: 340.9207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &722028086
@@ -1945,7 +1945,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -126}
+  m_AnchoredPosition: {x: -528, y: -126}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1116654028
@@ -2132,7 +2132,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 8400000, guid: 9cb1eb04b3493574c85a8bc93e2c317c, type: 2}
+      objectReference: {fileID: 2800000, guid: 8f44c5418e6f4804dbf65d688f8e11ba, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1035018170078024305, guid: 8922f9abd90f5fc4ebea8b03a17430f0, type: 3}
