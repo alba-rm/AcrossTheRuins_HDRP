@@ -402,6 +402,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2088981689}
+    - targetCorrespondingSourceObject: {fileID: 5108733299213846742, guid: 8922f9abd90f5fc4ebea8b03a17430f0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 841331029}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8922f9abd90f5fc4ebea8b03a17430f0, type: 3}
 --- !u!224 &648742362 stripped
@@ -435,17 +439,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841331028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2088981689}
+  m_Father: {fileID: 648742362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -75.3, y: 3.5}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -181, y: -272}
+  m_SizeDelta: {x: -1760, y: -1050}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &841331030
 MonoBehaviour:
@@ -467,7 +471,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pulsa cualquier tecla.
+  m_text: Pulsa cualquier tecla
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ec1f26270d9221049aaa2fdbc3019cc7, type: 2}
   m_sharedMaterial: {fileID: -5105824626767354728, guid: ec1f26270d9221049aaa2fdbc3019cc7,
@@ -918,9 +922,8 @@ AudioSource:
   m_GameObject: {fileID: 1961493878}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 672082489052174589, guid: 631dd7b788f5da2438e7dcbd63d30542,
-    type: 2}
-  m_audioClip: {fileID: 8300000, guid: fe58d81f1dc93524abe3db3ef3af287a, type: 3}
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: efab716091fade74b8cfd9a81d7ec1a1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1049,10 +1052,9 @@ RectTransform:
   m_GameObject: {fileID: 2088981688}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 841331029}
+  m_LocalScale: {x: 3.63, y: 2.7, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 648742362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

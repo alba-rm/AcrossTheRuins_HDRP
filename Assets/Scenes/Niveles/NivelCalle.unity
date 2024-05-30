@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 13.66176, g: 9.9922495, b: 8.918809, a: 1}
+  m_IndirectSpecularColor: {r: 13.680223, g: 9.9792185, b: 8.849, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -402,7 +402,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 6.970994
+  m_Radius: 5
   m_Center: {x: -0.38544458, y: 0, z: -0.7560977}
 --- !u!1 &22723179
 GameObject:
@@ -2896,8 +2896,7 @@ AudioSource:
   m_GameObject: {fileID: 305918115}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 672082489052174589, guid: 631dd7b788f5da2438e7dcbd63d30542,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b1890e02d34d2e647bc53190bd8463ca, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.8
@@ -5955,7 +5954,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 6.970994
+  m_Radius: 5
   m_Center: {x: -0.38544458, y: 0, z: -0.7560977}
 --- !u!1 &756802022
 GameObject:
@@ -8263,7 +8262,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 6.970994
+  m_Radius: 5
   m_Center: {x: -0.38544458, y: 0, z: -0.7560977}
 --- !u!1001 &1114036425
 PrefabInstance:
